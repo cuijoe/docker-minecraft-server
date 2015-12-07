@@ -5,7 +5,7 @@ MAINTAINER wyvernnot
 RUN apt-get -y install locales && \
 RUN sed -i 's/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/' /etc/locale.gen && \
 RUN locale-gen && \
-RUN update-locale LC_ALL= "zh_CN.UTF-8" && \
+
 RUN export LANGUAGE=zh_CN && \
 RUN export LANG=zh_CN.UTF-8 && \
 RUN locale && \
