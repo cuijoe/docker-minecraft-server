@@ -7,18 +7,18 @@ RUN wget -q http://shanlinfeiniao.oss-cn-qingdao.aliyuncs.com/world.zip
 RUN unzip world.zip 
 
 RUN apt-get -y install locales && \
-    sed -i 's/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/' /etc/locale.gen && \
-    locale-gen && \
-    update-locale LC_ALL= "zh_CN.UTF-8" && \
-    export LANGUAGE=zh_CN && \
-    export LANG=zh_CN.UTF-8 && \
-    locale && \
-    sed -i '$a \
-    * soft nproc 65536 \
-    * hard nproc 65536  \
-    * soft nofile 65536  \
-    * hard nofile 65536 ' /etc/security/limits.conf && \ 
-    echo "Asia/Shanghai" | tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
+RUN sed -i 's/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/' /etc/locale.gen && \
+RUN locale-gen && \
+RUN update-locale LC_ALL= "zh_CN.UTF-8" && \
+RUN export LANGUAGE=zh_CN && \
+RUN export LANG=zh_CN.UTF-8 && \
+RUN locale && \
+RUN sed -i '$a \
+RUN * soft nproc 65536 \
+RUN * hard nproc 65536  \
+RUN * soft nofile 65536  \
+RUN * hard nofile 65536 ' /etc/security/limits.conf && \ 
+RUN echo "Asia/Shanghai" | tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
 # 设置时区
 ENV     TZ "PRC"
 COPY . /data
