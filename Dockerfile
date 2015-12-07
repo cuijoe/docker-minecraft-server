@@ -8,4 +8,4 @@ unzip world.zip
 COPY . /data
 WORKDIR /data
 EXPOSE 25565
-CMD java -jar /mc.jar
+CMD java -Xmx512m -jar /mc.jar
