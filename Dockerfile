@@ -25,4 +25,4 @@ RUN apt-get install unzip
 RUN wget -q http://shanlinfeiniao.oss-cn-qingdao.aliyuncs.com/world.zip
 RUN unzip world.zip 
 
-CMD java -Xmx512m  -jar /mc.jar
+CMD java -Xmx512m  -jar ./mc.jar
